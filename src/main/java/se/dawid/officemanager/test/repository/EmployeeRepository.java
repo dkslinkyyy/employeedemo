@@ -175,13 +175,11 @@ public class EmployeeRepository implements Repository<Employee> {
         String firstName = resultSet.getString("firstName");
         String lastName = resultSet.getString("lastName");
 
-        // Map Occupation details
         Integer occupationID = resultSet.getObject("roleID") != null ? resultSet.getInt("roleID") : null;
         String title = resultSet.getString("occupation_title");
         String description = resultSet.getString("occupation_description");
         Integer salary = resultSet.getInt("salary");
 
-        // Create and return Employee object
         Occupation occupation = new Occupation(occupationID, title, description, salary);
         return new Employee(employeeID, firstName, lastName, occupation);
     }

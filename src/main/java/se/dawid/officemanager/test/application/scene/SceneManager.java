@@ -17,7 +17,6 @@ public class SceneManager {
         this.scenes = new ArrayList<>();
     }
 
-    // Public method to get the singleton instance
     public static SceneManager getInstance(Stage primaryStage) {
         if (instance == null) {
             synchronized (SceneManager.class) {

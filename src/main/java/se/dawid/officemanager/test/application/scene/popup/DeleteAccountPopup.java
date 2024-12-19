@@ -25,22 +25,18 @@ public class DeleteAccountPopup {
         VBox layout = new VBox(10);
         layout.setStyle("-fx-padding: 20;");
 
-        // Dropdown for selecting account
         ComboBox<String> accountComboBox = new ComboBox<>();
         accountComboBox.setPromptText("Välj konto att ta bort");
         serviceController.getAccountService().getAllAccounts().forEach(account ->
                 accountComboBox.getItems().add(account.getUsername())
         );
 
-        // Manual input field for username
         TextField usernameField = new TextField();
         usernameField.setPromptText("Eller ange användarnamn");
 
-        // Buttons
         Button deleteButton = new Button("Ta bort");
         Button cancelButton = new Button("Avbryt");
 
-        // Action for delete button
         deleteButton.setOnAction(e -> {
             String selectedUsername = accountComboBox.getValue();
             String manualUsername = usernameField.getText();
